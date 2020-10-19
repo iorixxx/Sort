@@ -23,7 +23,7 @@ public class Sort {
             return;
         }
 
-        List<String> lines = Files.readAllLines(path);
+        List<String> lines = Files.readAllLines(path, StandardCharsets.US_ASCII);
 
         Collections.sort(lines);
 
