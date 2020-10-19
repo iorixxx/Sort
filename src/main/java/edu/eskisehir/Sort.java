@@ -1,5 +1,6 @@
 package edu.eskisehir;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,6 +13,9 @@ import java.nio.charset.StandardCharsets;
 public class Sort {
 
     public static void main(String[] args) throws IOException {
+
+
+        JOptionPane.showMessageDialog(null, "Hello Executable Jar!");
 
         if (args.length != 1) {
             System.out.println("please supply an argument: file name");
