@@ -5,6 +5,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.List;
+import java.nio.charset.StandardCharsets;
 
 // suppose a Java application called Sort sorts lines in a file.
 public class Sort {
