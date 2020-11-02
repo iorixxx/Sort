@@ -15,17 +15,6 @@ public class OnurGozcu {
         studentList.add(new Student("Ozan", "Gözcü", 115));
         studentList.add(new Student("Ömer", "Aydın", 116));
 
-
-       // studentList.add(5);
-       // studentList.add("ahmet");
-       // studentList.add(null);
-
-
-        // Omer: Ey java asagidakilere izin veriyorsun da neden yukardakilere izin vermiyorsun?
-        studentList.contains(5);
-        studentList.contains("ahmet");
-        studentList.contains(null);
-
         Student bannedStudent = new Student("Onur", "Gözcü", 112);
 
         System.out.println("İşlemden önceki eleman sayısı: " + studentList.size());
@@ -35,6 +24,16 @@ public class OnurGozcu {
         }
 
         System.out.println("İşlemden sonraki eleman sayısı: " + studentList.size());
+
+        studentList.contains(5);
+        studentList.contains("ahmet");
+        studentList.contains(null);
+
+        // Omer: Ey Java! yukardakilere izin veriyorsun da neden asagidakilere izin vermiyorsun?
+
+        // studentList.add(5);
+        // studentList.add("ahmet");
+        // studentList.add(null);
 
     }
 }
