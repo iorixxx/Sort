@@ -1,13 +1,12 @@
 package edu.eskisehir;
 
-import java.util.ArrayList;
-import java.util.Objects;
+import java.util.*;
 
 public class OnurGozcu {
 
     public static void main(String[] args) {
 
-        ArrayList<Student> studentList = new ArrayList<>();
+        List<Student> studentList = new ArrayList<>();
 
         studentList.add(new Student("Onur", "Gözcü", 112));
         studentList.add(new Student("Eren", "Alkan", 113));
@@ -15,7 +14,22 @@ public class OnurGozcu {
         studentList.add(new Student("Ozan", "Gözcü", 115));
         studentList.add(new Student("Ömer", "Aydın", 116));
 
+        // example of a generic method
+        Collections.sort(studentList);
+
+        // Please see source code of map, Function and Predicate
+        // for far more advanced usage of Generics
+        System.out.println(studentList
+                .stream()
+                .map(Student::getName)
+                .distinct()
+                .count());
+
+        System.out.println(studentList);
+
         Student bannedStudent = new Student("Onur", "Gözcü", 112);
+
+        System.out.println(bannedStudent.hashCode());
 
         System.out.println("İşlemden önceki eleman sayısı: " + studentList.size());
 
@@ -35,10 +49,13 @@ public class OnurGozcu {
         // studentList.add("ahmet");
         // studentList.add(null);
 
+        System.out.println(Integer.MIN_VALUE);
+        System.out.println(Integer.MAX_VALUE);
+
     }
 }
 
-class Student {
+class Student implements Comparable<Student> {
     String name;
     String surname;
     int id;
@@ -58,6 +75,16 @@ class Student {
         return Objects.hash(name, surname, id);
     }
 
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", id=" + id +
+                '}';
+    }
+
     public Student(String name, String surname, int id) {
         this.name = name;
         this.surname = surname;
@@ -66,5 +93,10 @@ class Student {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        return this.id - o.id;
     }
 }

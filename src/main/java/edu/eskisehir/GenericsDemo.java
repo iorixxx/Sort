@@ -46,11 +46,19 @@ public class GenericsDemo<E> {
             System.out.println(o);
     }
 
+    static void printList3(List<Number> list) {
+        for (Object o : list)
+            System.out.println(o);
+    }
+
     public static void main(String[] args) {
 
         // nice example of a generic method Lists.of
         List<Integer> iList = List.of(4, 5, 6, 7, 8, 9);
         List<Double> dList = List.of(4.0, 5.0, 6.0, 7.0, 8.0, 9.0);
+        List<Float> fList = List.of(4.0f, 5.0f, 6.0f, 7.0f, 8.0f, 9.0f);
+
+        // They do not work! printList3(fList);    printList3(iList);    printList3(dList);
 
         printList(iList);
         printList(dList);
