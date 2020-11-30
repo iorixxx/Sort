@@ -60,6 +60,11 @@ public class SortTest {
     Path inputFile;
     Path outFile;
 
+    /**
+     * Test for Sort file -u
+     *
+     * @throws IOException
+     */
     @Test
     public void testUniqueSort() throws IOException {
 
@@ -87,7 +92,7 @@ public class SortTest {
                 "world", "xe", "zebra"
         );
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals("Sort -u", expected, actual);
     }
 
     @Test
@@ -118,6 +123,6 @@ public class SortTest {
                 "burcu", "biber", "ahmet"
         );
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals("Sort -u -r", expected, actual);
     }
 }
