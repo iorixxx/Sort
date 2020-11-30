@@ -2,6 +2,8 @@ package edu.eskisehir;
 
 import org.junit.*;
 
+import java.util.Random;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -42,12 +44,9 @@ public class AppTest {
     }
 
     @Test
-    @Ignore
     public void impossibleTest() {
-
-        int input = 5; // ?
-
-        assertTrue("informative message", Math.abs(input) < 0);
+        int input = new Random().nextInt();
+        assertTrue("informative message", Math.abs(input) >= 0);
     }
 
     @AfterClass
@@ -55,23 +54,25 @@ public class AppTest {
         System.out.println("after class is called");
     }
 
-    @Ignore
-    @Test(expected = java.lang.ArithmeticException.class)
+    @Test(expected = java.lang.ArrayIndexOutOfBoundsException.class)
     public void testException() {
-        int p = 5;
-        int payda = p - 5;
-        double sonuc = (double) p / payda;
+        int[] array = new int[3];
+        array[3] = 0;
+        assertEquals(array.length, 3);
+    }
+
+    @Test(expected = java.lang.OutOfMemoryError.class)
+    public void testError() {
+        double[] array = new double[Integer.MAX_VALUE];
+        assertEquals(array.length, Integer.MAX_VALUE);
     }
 
     @Test
     public void testDivision() {
         int p = 9;
         int payda = 3;
-        double sonuc = (double) p / payda;
-
-        System.out.println(sonuc);
-
-        assertEquals("9/3=3", 3.0D, sonuc, 0.00001);
+        int sonuc = p / payda;
+        assertEquals("9/3=3", 3, sonuc);
     }
 
     @Test
@@ -83,7 +84,7 @@ public class AppTest {
         System.out.println(s);
 
         // When working with doubles and floats make sure to use delta
-        // assertTrue(s == 6.0D);
+        // assertTrue(s == 6.0D); does not work
 
         assertEquals("6.6/1.1=6.0", 6.0D, s, 0.00001);
     }
